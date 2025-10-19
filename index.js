@@ -67,8 +67,12 @@ client.on('interactionCreate', async interaction => {
             )
             .setTimestamp();
 
+        await interaction.channel.send({
+            content: '@here',
+            allowedMentions: { parse: ['everyone'] }
+        });
+
         await interaction.reply({ 
-            content: '@here', 
             embeds: [embed],
             fetchReply: true 
         });
@@ -95,7 +99,6 @@ client.on('interactionCreate', async interaction => {
                 .setTimestamp();
 
             await message.edit({ 
-                content: '@here', 
                 embeds: [updatedEmbed], 
                 components: [row] 
             });
